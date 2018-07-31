@@ -10,6 +10,7 @@ import os
 env.hosts = ['35.237.142.70', '35.231.108.250']
 env.user = 'ubuntu'
 
+
 def do_pack():
     """
     function creates a .tgz archive
@@ -51,6 +52,7 @@ def do_deploy(archive_path):
         return False
     return run('ln -s {} /data/web_static/current'.format(
         foldername)).succeeded
+
 
 def deploy():
     """
