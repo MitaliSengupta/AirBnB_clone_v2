@@ -6,13 +6,7 @@
 
 def do_pack():
     """
-        Function creates a .tgz archive from all files in web_static folder
-        Each archive will be stored in versions folder
-        Archive name:
-            web_static_<year><month><day><hour><minute><second>.tgz
-        Returns:
-            archive path if successful
-            None if fail
+    function creates a .tgz
     """
     from fabric.operations import local
     from datetime import datetime
