@@ -1,7 +1,7 @@
 # Synopsis
 
 The Airbnb clone project for which we are creating a copy of the [Airbnb](https://www.airbnb.com/).
-Only some features will be implemented and will be listed below once completed.
+Only some features will be implemented and will be listed below once completed. As part of the project we were asked to fork from a different repo to add code and update the functionality of the existing codebase. To access the part one of the project please [click here](https://www.github.com/MitaliSengupta/AirBnB_clone/).
 
 
 ## Features
