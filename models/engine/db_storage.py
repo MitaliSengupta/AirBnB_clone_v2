@@ -37,7 +37,6 @@ class DBStorage:
         if os.getenv("HBNB_ENV") == 'test':
             Base.metadata.drop_all(bind=self.__engine)
 
-
     def all(self, cls=None):
         """
         Retrieves dictionary of objects in database
@@ -58,20 +57,17 @@ class DBStorage:
                 objs_dict[key] = instance
         return (objs_dict)
 
-
     def new(self, obj):
         """
         Creates a query on current db session depending on class name
         """
         self.__session.add(obj)
 
-
     def save(self):
         """
         commit all changes of the current db session
         """
         self.__session.commit()
-
 
     def delete(self, obj=None):
         """
@@ -80,7 +76,6 @@ class DBStorage:
         if obj:
             self.__session.delete(obj)
             self.save()
-
 
     def reload(self):
         """
@@ -92,7 +87,6 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
-
 
     def close(self):
         """

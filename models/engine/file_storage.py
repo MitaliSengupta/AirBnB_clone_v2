@@ -21,10 +21,8 @@ class FileStorage:
         if cls is None:
             return (self.__objects)
         else:
-#           for key, val in self.__objects.items():
-            new = {obj:key for obj, key in self.__objects.items()
+            new = {obj: key for obj, key in self.__objects.items()
                    if type(key) == cls}
-#                if cls.__name__ == val.__class__.__name__:
             return (new)
 
     def new(self, obj):
@@ -72,7 +70,6 @@ class FileStorage:
                 FileStorage.__objects[key] = class_name(**val)
         except FileNotFoundError:
             pass
-
 
     def close(self):
         """
