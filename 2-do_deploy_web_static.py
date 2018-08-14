@@ -35,6 +35,7 @@ def do_deploy(archive_path):
         return False
     if not put(archive_path, "/tmp/").succeeded:
         return False
+    print("Hello")
     filename = archive_path[9:]
     foldername = "/data/web_static/releases/" + filename[:-4]
     filename = "/tmp/" + filename

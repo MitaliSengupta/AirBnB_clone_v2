@@ -37,6 +37,7 @@ class DBStorage:
         if os.getenv("HBNB_ENV") == 'test':
             Base.metadata.drop_all(bind=self.__engine)
 
+
     def all(self, cls=None):
         """
         Retrieves dictionary of objects in database
@@ -46,17 +47,17 @@ class DBStorage:
             dictionary of objects
         """
         objs_dict = {}
-        objs = None
+        objs = [v for k, v in classes.items()]
         if cls:
-            if cls in classes:
+            if isinstance(cls, str):
                 cls = classes[cls]
-                objs = self.__session.query(cls).all()
-        else:
-            objs = self.__session.query(User, State, City, Place).all()
-        for obj in objs:
-            key = "{}.{}".format(type(obj).__name__, obj.id)
-            objs_dict[key] = obj
+            objs = [cls]
+        for c in objs:
+            for instance in self.__session.query(c):
+                key = str(instance.__class__.__name__) + "." + str(instance.id)
+                objs_dict[key] = instance
         return (objs_dict)
+
 
     def new(self, obj):
         """
@@ -64,11 +65,13 @@ class DBStorage:
         """
         self.__session.add(obj)
 
+
     def save(self):
         """
         commit all changes of the current db session
         """
         self.__session.commit()
+
 
     def delete(self, obj=None):
         """
@@ -77,6 +80,7 @@ class DBStorage:
         if obj:
             self.__session.delete(obj)
             self.save()
+
 
     def reload(self):
         """
@@ -88,3 +92,11 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
+
+
+    def close(self):
+        """
+        calls remove() method on the pricate session attribute
+        """
+        if self.__session:
+            self.__session.close()

@@ -71,7 +71,7 @@ class Place(BaseModel, Base):
         def reviews(self):
             """
             """
-            reviews_dict = models.storage.all('Review')
+            reviews_dict = models.storage.all(models.Review)
             reviews_list = []
             for review in reviews_dict.values():
                 if review.place_id == self.id:

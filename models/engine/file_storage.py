@@ -21,11 +21,11 @@ class FileStorage:
         if cls is None:
             return (self.__objects)
         else:
-            cls = models.classes[cls]
-            for key, val in self.__objects.items():
-                if cls.__name__ == val.__class__.__name__:
-                    obje[key] = val
-            return (obje)
+#           for key, val in self.__objects.items():
+            new = {obj:key for obj, key in self.__objects.items()
+                   if type(key) == cls}
+#                if cls.__name__ == val.__class__.__name__:
+            return (new)
 
     def new(self, obj):
         '''
@@ -55,8 +55,8 @@ class FileStorage:
         if not obj:
             return
         key = '{}.{}'.format(type(obj).__name__, obj.id)
-        if key in self.__objects:
-            del self.__objects[key]
+        if key in FileStorage.__objects:
+            del FileStorage.__objects[key]
             self.save()
 
     def reload(self):
@@ -72,3 +72,10 @@ class FileStorage:
                 FileStorage.__objects[key] = class_name(**val)
         except FileNotFoundError:
             pass
+
+
+    def close(self):
+        """
+        calls reload() for deserializing the JSON file to object
+        """
+        self.reload()
