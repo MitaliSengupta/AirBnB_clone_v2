@@ -65,18 +65,16 @@ button:hover {
     background-color: #FAFAFA;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    padding-bottom: 25px;
+    padding: 15px;
     height: 300px;
     overflow: scroll;
     list-style: none;
-    margin-top: -2px;
 }
-.amenities .popover {
+/**.amenities .popover {
     padding: 0px;
-}
+}*/
 .popover ul {
     list-style-type: none;
-    margin-left: -20px;
 }
 
 .popover .li_item {
