@@ -38,12 +38,14 @@ button:hover {
     margin-left: -4px;
 }
 
-.filters h3, h4 {
+.filters h4 {
     margin-left: 15%;
+    margin-bottom: 3%;
 }
 
 .popover h2 {
     margin-bottom: 2px;
+    margin-top: 0;
 }
 
 .locations {
@@ -52,27 +54,34 @@ button:hover {
 
 .filters h3 {
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: -30px;
+    margin-left: 15%;
+    margin-top: 10%;
 }
-.filters h4 {
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 0;
-}
+
 .popover {
     visibility: hidden;
     width: auto;
     background-color: #FAFAFA;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    padding: 15px;
+    padding: 20px;
     height: 300px;
     overflow: scroll;
     list-style: none;
 }
-/**.amenities .popover {
-    padding: 0px;
-}*/
+.amenities .popover ul {
+    list-style-type: none;
+    margin-left: -20px;
+}
+
+.locations > .popover ul {
+    list-style: none;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+
 .popover ul {
     list-style-type: none;
 }
