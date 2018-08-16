@@ -72,10 +72,11 @@ button:hover {
     margin-top: -2px;
 }
 .amenities .popover {
-    padding: 20px;
+    padding: 0px;
 }
 .popover ul {
     list-style-type: none;
+    margin-left: -20px;
 }
 
 .popover .li_item {
@@ -84,6 +85,7 @@ button:hover {
 
 .popover .li_pad {
     line-height: 25px;
+    margin-left: -25px;
 }
 
 .amenities:hover .popover,
